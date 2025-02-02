@@ -9,7 +9,7 @@ const io = new Server(server, {
     path: "/socket.io",
     cors: {
         // origin: process.env.CLIENT_URL, // The URL of your Vercel app
-        origin: 'https://books-mall.vercel.app', // The URL of your Vercel app
+        origin: ['https://books-mall.vercel.app','https://fantastic-halibut-6954xqq9jgq6frg5w.github.dev'] // The URL of your Vercel app
         methods: ["GET", "POST"],
         credentials: true,
 
