@@ -2,14 +2,20 @@ import http from "http";
 import express from "express";
 import { Server } from "socket.io";
 import { configDotenv } from "dotenv";
+import cors from "cors";
+
 configDotenv();
 const app = express();
+app.use(cors({
+    origin: ['https://books-mall.vercel.app', "http://localhost:3000"],
+    methods: ["GET", "POST"],
+    credentials: true,
+  }));
 const server = http.createServer(app);
 const io = new Server(server, {
     path: "/socket.io",
     cors: {
-        // origin: process.env.CLIENT_URL, // The URL of your Vercel app
-        origin: ['https://books-mall.vercel.app','https://fantastic-halibut-6954xqq9jgq6frg5w.github.dev'], // The URL of your Vercel app
+        origin: ['https://books-mall.vercel.app',"http://localhost:3000"], // The URL of your Vercel app
         methods: ["GET", "POST"],
         credentials: true,
 
