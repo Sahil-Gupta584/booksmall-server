@@ -7,7 +7,7 @@ import cors from "cors";
 configDotenv();
 const app = express();
 app.use(cors({
-    origin: ['https://books-mall.vercel.app', "http://localhost:3000"],
+    origin: ['https://books-mall.vercel.app', "http://localhost:3000","https://booksmall-1.onrender.com"],
     methods: ["GET", "POST"],
     credentials: true,
   }));
@@ -15,7 +15,7 @@ const server = http.createServer(app);
 const io = new Server(server, {
     path: "/socket.io",
     cors: {
-        origin: ['https://books-mall.vercel.app',"http://localhost:3000"], // The URL of your Vercel app
+        origin: ['https://books-mall.vercel.app',"http://localhost:3000","https://booksmall-1.onrender.com"], // The URL of your Vercel app
         methods: ["GET", "POST"],
         credentials: true,
 
